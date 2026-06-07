@@ -3,7 +3,7 @@ import type { PollingConfig } from './ModbusTypes';
 
 
 export const startPolling = async (config: PollingConfig) => {
-  const url = new URL('/modbus/start', window.location.origin);
+  const url = new URL('./modbus/start', window.location.href);
   Object.entries(config).forEach(([key, value]) => url.searchParams.append(key, value.toString()));
   
   const response = await fetch(url.toString(), { method: 'POST' });
@@ -11,7 +11,7 @@ export const startPolling = async (config: PollingConfig) => {
 };
 
 export const stopPolling = async (config: PollingConfig) => {
-  const url = new URL('/modbus/stop', window.location.origin);
+  const url = new URL('./modbus/stop', window.location.href);
   Object.entries(config).forEach(([key, value]) => url.searchParams.append(key, value.toString()));
 
   const response = await fetch(url.toString(), { method: 'POST' });
@@ -19,14 +19,14 @@ export const stopPolling = async (config: PollingConfig) => {
 };
 
 export const getSessions = async (): Promise<PollingConfig[]> => {
-  const response = await fetch('/modbus/sessions');
+  const response = await fetch('./modbus/sessions');
   if (!response.ok) throw new Error('Failed to fetch sessions');
   return response.json();
 };
 
 export const createHubConnection = () => {
   return new signalR.HubConnectionBuilder()
-    .withUrl('/modbushub')
+    .withUrl('./modbushub')
     .withAutomaticReconnect()
     .build();
 };

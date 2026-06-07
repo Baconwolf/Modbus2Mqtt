@@ -1,0 +1,18 @@
+{
+  "name": "Modbus2MQTT",
+  "version": "0.1.6",
+  "slug": "bacon_modbus_2_mqtt",
+  "description": "Bridges Modbus TCP devices to MQTT with real-time polling and web-based configuration interface",
+  "url": "https://github.com/Baconwolf/Modbus2Mqtt/tree/master/Modbus2Mqtt",
+  "arch": ["amd64", "aarch64", "armv7"],
+  "map": ["addon_config:rw"],
+  "startup": "application",
+  "boot": "auto",
+  "init": false,
+  "ingress": true,
+  "ingress_port": 8080,
+  "options": {
+  },
+  "schema": {
+  }
+}

@@ -5,7 +5,10 @@ using Modbus2Mqtt.Modbus;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Determine the database path
+if (!builder.Environment.IsDevelopment())
+{
+    builder.WebHost.UseUrls("http://0.0.0.0:8080");
+}
 var dbPath = "modbus.db";
 if (Directory.Exists("/addon_config"))
 {
@@ -28,7 +31,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 

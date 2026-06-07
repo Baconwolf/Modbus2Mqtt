@@ -1,0 +1,14 @@
+{
+  "name": "Baconwolf Home Assistant Repository",
+  "url": "https://github.com/Baconwolf/Modbus2Mqtt",
+  "maintainer": "Baconwolf",
+  "codeowners": ["@Baconwolf"],
+  "addons": [
+    {
+      "name": "Modbus2MQTT",
+      "slug": "bacon_modbus_2_mqtt",
+      "description": "Bridges Modbus TCP devices to MQTT with real-time polling and web-based configuration interface",
+      "url": "https://github.com/Baconwolf/Modbus2Mqtt/tree/master/Modbus2Mqtt"
+    }
+  ]
+}
